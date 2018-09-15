@@ -35,6 +35,14 @@ public:
                 << "DamagePower : " << _damagePower << endl
                 << "Direction   : " << _direction << endl << endl;
     }
+
+    void printFeatures() {
+        cout << "Name        : " << _bulletName << endl
+                << "Speed       : " << _speed << endl
+                << "FirePower   : " << _firePower << endl
+                << "DamagePower : " << _damagePower << endl
+                << "Direction   : " << _direction << endl << endl;
+    }
 };
 
 /** SimpleBullet is a Concrete Prototype */
@@ -89,9 +97,20 @@ public:
 int main() {
     BulletFactory bulletFactory;
 
-    auto Bullet = bulletFactory.createBullet(SIMPLE);
-    Bullet->fire(90);
+    auto bullet = bulletFactory.createBullet(SIMPLE);
+    bullet->fire(90);
 
-    Bullet = bulletFactory.createBullet(GOOD);
-    Bullet->fire(100);
+    auto bullet2 = bulletFactory.createBullet(GOOD);
+    bullet2->fire(100);
+
+    auto bullet3 = bulletFactory.createBullet(SIMPLE);
+    bullet3->fire(180);
+
+    auto bullet4 = bulletFactory.createBullet(GOOD);
+    bullet4->fire(65);
+
+    bullet->printFeatures();
+    bullet2->printFeatures();
+    bullet3->printFeatures();
+    bullet4->printFeatures();
 }
